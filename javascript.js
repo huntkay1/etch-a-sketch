@@ -1,5 +1,6 @@
-const container = document.getElementById("container");
+const container = document.getElementById("grid");
 
+//Creates the boxes used to build the grid based on the specificed dimensions 
 function makeGrid(size) {
     let gridSize = size * size;
 
@@ -7,15 +8,16 @@ function makeGrid(size) {
         let gridSquare = document.createElement("div");
         gridSquare.classList.add('square');
 
-        let gridWidth = container.clientWidth / size + `px`;
-        let gridHeight = container.clientHeight / size + `px`;
+        //clientHeight includes the padding and border in the container dimensions for proper calcuation
+        let squareWidth = container.clientHeight / size + `px`; 
+        let squareHeight = container.clientWidth / size + `px`;
 
-        gridSquare.style.width = `${gridWidth}`;
-        gridSquare.style.height = `${gridWidth}`;
-        gridSquare.style.border = "1px green solid";
+        gridSquare.style.width = `${squareWidth}`;
+        gridSquare.style.height = `${squareHeight}`;
+        
 
         container.appendChild(gridSquare);
     }
 }
 
-makeGrid(10);
+makeGrid(20);
