@@ -1,4 +1,4 @@
-const container = document.getElementById("grid");
+const container = document.getElementById("container");
 
 //Creates the boxes used to build the grid based on the specificed dimensions 
 function makeGrid(size) {
@@ -47,16 +47,19 @@ function changeColor() {
 body = document.querySelector('body');
 sizeBtn = document.createElement("button");
 sizeBtn.textContent = "Select Size";
+sizeBtn.classList.add("select");
 body.appendChild(sizeBtn);
+
 
 sizeBtn.addEventListener('click', () => {
     gridSize = prompt("Please specify a dimension number: "); 
-    
+
     while (gridSize > 100) {
         gridSize = prompt("Please enter a number less than 100: ")
     };
 
     makeGrid(gridSize);
+    changeColor();
 })
 
 

@@ -1,15 +1,14 @@
-body {
-    margin: 0 auto;
-}
 
-#container {
+
+body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column-reverse;
     height: 100vh;
 }
 
-#grid {
+#container {
     height: 700px;
     width: 700px;
     display: flex;
@@ -20,4 +19,21 @@ body {
 .square {
     box-sizing: border-box; /*Used to include border and padding in the width and height */
     border: 0.5px solid black;
+}
+
+.select {
+    margin-bottom: 30px;
+    font-size: 20px;
+    border: 1px solid black;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+.select:hover {
+    background-color: gray;
+    color: white;
+    border: 1px gray solid;
+    
 }
