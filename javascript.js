@@ -2,6 +2,11 @@ const container = document.getElementById("grid");
 
 //Creates the boxes used to build the grid based on the specificed dimensions 
 function makeGrid(size) {
+
+    while(container.firstChild) {
+        container.removeChild(container.firstChild)
+    };
+
     let gridSize = size * size;
     let fragment = document.createDocumentFragment(); //holds the squares in a fragment to help performance
 
@@ -27,7 +32,7 @@ function makeGrid(size) {
 function changeColor() {
 
     let squares = document.getElementsByClassName('square');
-    let squareArray = [...squares]; //change 
+    let squareArray = [...squares]; //change to array
 
     squareArray.forEach((square) => {
         square.addEventListener('mouseenter', () => {
@@ -36,6 +41,24 @@ function changeColor() {
     } )
 
 }
+
+
+body = document.querySelector('body');
+sizeBtn = document.createElement("button");
+sizeBtn.textContent = "Select Size";
+body.appendChild(sizeBtn);
+
+sizeBtn.addEventListener('click', () => {
+    gridSize = prompt("Please specify a dimension number: "); 
+    makeGrid(gridSize);
+})
+
+
+
+
+
+
+   
 
 
 
