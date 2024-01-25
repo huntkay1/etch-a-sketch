@@ -72,10 +72,14 @@ function initializeGrid() {
 
 //creates and adds select size button
 body = document.querySelector('body');
+btnContainer = document.createElement("div");
+btnContainer.classList.add("btnContainer")
+body.appendChild(btnContainer);
+
 sizeBtn = document.createElement("button");
 sizeBtn.textContent = "Select Size";
 sizeBtn.classList.add("select");
-body.appendChild(sizeBtn);
+btnContainer.appendChild(sizeBtn);
 
 
 //allows user to choose dimensions
@@ -95,9 +99,9 @@ sizeBtn.addEventListener('click', () => {
 clearBtn = document.createElement("button");
 clearBtn.textContent = "Clear";
 clearBtn.classList.add("clear");
-body.appendChild(clearBtn);
+btnContainer.appendChild(clearBtn);
 
-//clears the board 
+//clears the board when 
 clearBtn.addEventListener('click', () => {
     let squares = document.getElementsByClassName('square');
     let squareArray = [...squares]; //change to array
