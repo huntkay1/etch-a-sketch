@@ -44,7 +44,7 @@ function changeColor() {
 
 }
 
-//initializes the grid 
+//initializes the grid so that it first displays with 16 squares. Same function as makeGrid
 function initializeGrid() {
     let size = 16;
     let gridSize = size * size;
@@ -70,6 +70,7 @@ function initializeGrid() {
 }
 
 
+//creates and adds select size button
 body = document.querySelector('body');
 sizeBtn = document.createElement("button");
 sizeBtn.textContent = "Select Size";
@@ -77,7 +78,7 @@ sizeBtn.classList.add("select");
 body.appendChild(sizeBtn);
 
 
-
+//allows user to choose dimensions
 sizeBtn.addEventListener('click', () => {
     gridSize = prompt("Please specify a dimension number: "); 
 
@@ -89,7 +90,27 @@ sizeBtn.addEventListener('click', () => {
     changeColor();
 })
 
+
+//creates and adds clear button
+clearBtn = document.createElement("button");
+clearBtn.textContent = "Clear";
+clearBtn.classList.add("clear");
+body.appendChild(clearBtn);
+
+//clears the board 
+clearBtn.addEventListener('click', () => {
+    let squares = document.getElementsByClassName('square');
+    let squareArray = [...squares]; //change to array
+    console.log(squareArray);
+
+    squareArray.forEach((square) => {
+        square.style.backgroundColor = "white";
+    })
+
+})
+
 initializeGrid();
+changeColor();
 
 
 
