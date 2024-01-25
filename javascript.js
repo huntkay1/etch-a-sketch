@@ -3,6 +3,7 @@ const container = document.getElementById("grid");
 //Creates the boxes used to build the grid based on the specificed dimensions 
 function makeGrid(size) {
 
+    //resets the grid
     while(container.firstChild) {
         container.removeChild(container.firstChild)
     };
@@ -50,6 +51,11 @@ body.appendChild(sizeBtn);
 
 sizeBtn.addEventListener('click', () => {
     gridSize = prompt("Please specify a dimension number: "); 
+    
+    while (gridSize > 100) {
+        gridSize = prompt("Please enter a number less than 100: ")
+    };
+
     makeGrid(gridSize);
 })
 
