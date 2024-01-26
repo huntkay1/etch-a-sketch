@@ -179,7 +179,7 @@ rainbowBtn.addEventListener('click', () => {
 
     } else {
         rainbowBtn.textContent = "Rainbow Mode";
-        changeColor();
+        changeColor(); //essentially goes back to classic mode - black color
     }
 })
 
