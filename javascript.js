@@ -1,4 +1,5 @@
 const container = document.getElementById("container");
+let eraseMode = false;
 
 //Creates the boxes used to build the grid based on the specificed dimensions 
 function makeGrid(size) {
@@ -27,7 +28,6 @@ function makeGrid(size) {
     }
 
     container.appendChild(fragment); //adds the squares fragment 
-    
 }
 
 //changes the color of the square when moused over
@@ -38,7 +38,7 @@ function changeColor() {
 
     squareArray.forEach((square) => {
         square.addEventListener('mouseenter', () => {
-            square.style.backgroundColor = 'purple';
+            square.style.backgroundColor = 'black';
         });
     } )
 
@@ -66,6 +66,7 @@ function initializeGrid() {
     }
 
     container.appendChild(fragment); //adds the squares fragment 
+    container.style.backgroundColor = "white";
 
 }
 
@@ -111,6 +112,39 @@ clearBtn.addEventListener('click', () => {
         square.style.backgroundColor = "white";
     })
 
+})
+
+eraseBtn = document.createElement("button");
+eraseBtn.textContent = "Erase";
+eraseBtn.classList.add("erase");
+btnContainer.appendChild(eraseBtn);
+
+eraseBtn.addEventListener('click', () => { 
+    eraseMode = !eraseMode;
+
+    if (eraseMode) {
+        eraseBtn.style.backgroundColor = "gray";
+        let squares = document.getElementsByClassName('square');
+        let squareArray = [...squares]; //change to array
+
+        squareArray.forEach((square) => {
+            square.addEventListener('mouseenter', () => {
+                square.style.backgroundColor = 'white';
+            });
+        } )
+    } else {
+        eraseBtn.style.backgroundColor = "transparent";
+        let squares = document.getElementsByClassName('square');
+        let squareArray = [...squares]; //change to array
+
+        squareArray.forEach((square) => {
+            square.addEventListener('mouseenter', () => {
+                square.style.backgroundColor = 'black';
+            });
+        } )
+    }
+
+    
 })
 
 initializeGrid();
